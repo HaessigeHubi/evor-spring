@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
-
+//DEPRECATED
 @Entity
 public class Location {
     @Id

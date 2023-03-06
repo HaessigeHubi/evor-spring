@@ -33,7 +33,7 @@ public class Event {
 
 
 
-    public Event(String eventname, String description, double lat, double lng, String address, String owner ){
+    public Event(String eventname, String description, double lat, double lng, String address, String owner,String startDate, String endDate, String tag, int maxParticipation, int ageRestriction ){
         super();
         this.eventname = eventname;
         this.description = description;
@@ -41,6 +41,11 @@ public class Event {
         this.lng =lng;
         this.address = address;
         this.owner = owner;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.tag = tag;
+        this.maxParticipation = maxParticipation;
+        this.ageRestriction = ageRestriction;
     }
 
 
@@ -66,22 +71,6 @@ public class Event {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
     }
 
     public int getMaxParticipation() {
@@ -152,12 +141,28 @@ public class Event {
     private String description;
     @CreationTimestamp
     private Date createDate;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
 
     private int maxParticipation;
     private int ageRestriction;
-
+    private String tag;
     private double lat;
     private double lng;
 
@@ -166,6 +171,13 @@ public class Event {
     private String address;
     private String owner;
 
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 
     public Event() {
 

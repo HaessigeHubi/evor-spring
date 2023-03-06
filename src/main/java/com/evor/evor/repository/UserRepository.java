@@ -6,7 +6,9 @@ import com.evor.evor.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-
+/*
+Only additional functions for Users needed to be added
+ */
 public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByPublished(boolean published);
 

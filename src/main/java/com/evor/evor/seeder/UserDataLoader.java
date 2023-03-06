@@ -14,6 +14,7 @@ public class UserDataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         loadUserData();
     }
+    //Test Cases when Spring Boot is started
     private void loadUserData(){
         if (userRepository.count() == 0){
             User user1 = new User("Oliver","Huber","18.10.1996","asdf@asdf.com");

@@ -10,7 +10,6 @@ import com.evor.evor.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -47,7 +46,7 @@ public class EventController {
         List<User> users = userRepository.findUsersByEventsId(eventId);
         return users;
     }
-
+    //Adding data to many to many Relationship between users and event
     @PostMapping("/users/{userId}/events")
     public Event addEvent(@PathVariable(value = "userId") Long userId, @RequestBody Event eventRequest) {
         Event event = userRepository.findById(userId).map(user -> {
@@ -79,7 +78,7 @@ public class EventController {
 
         return eventRepository.save(event);
     }
-
+    //Deleting data to many to many Relationship between users and event
     @DeleteMapping("/users/{userId}/events/{eventId}")
     public HttpStatus deleteEventFromUser(@PathVariable(value = "userId") Long userId, @PathVariable(value = "eventId") Long eventId) {
         User user = userRepository.findById(userId)
@@ -98,7 +97,7 @@ public class EventController {
         return HttpStatus.NO_CONTENT;
     }
 
-
+    //Adding data to many to many Relationship between users and event
     @PostMapping("/events/{eventId}/users")
     public User addUsers(@PathVariable(value = "eventId") Long eventId, @RequestBody User userRequest) {
         User user = eventRepository.findById(eventId).map(event -> {
@@ -123,7 +122,7 @@ public class EventController {
 
     @PostMapping("/events")
     public Event createEvent(@RequestBody Event event) {
-        return eventRepository.save(new Event(event.getEventname(), event.getDescription(), event.getLat(), event.getLng(), event.getAddress(), event.getOwner()));
+        return eventRepository.save(new Event(event.getEventname(), event.getDescription(), event.getLat(), event.getLng(), event.getAddress(), event.getOwner(),event.getStartDate(),event.getEndDate(), event.getTag(), event.getMaxParticipation(), event.getAgeRestriction()));
     }
 
 

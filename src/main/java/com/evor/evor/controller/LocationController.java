@@ -5,7 +5,9 @@ import com.evor.evor.repository.LocationRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/*
+NOT in use, preperation for furure
+ */
 @RestController
 public class LocationController {
     private LocationRepository locationRepository;

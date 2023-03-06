@@ -19,6 +19,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    //GET Users
     @GetMapping("/users")
     List<User> getAllUsers(@RequestParam(required = false) String title) {
         List<User> users = new ArrayList<User>();
@@ -57,6 +58,7 @@ public class UserController {
 
         return HttpStatus.NO_CONTENT;
     }
+    //Find User by E-Mail. E-Mail should be unique
     @GetMapping("/users/email/{email}")
     User one(@PathVariable String email) throws Exception {
         List<User> checkUser = userRepository.findByEmail(email);
